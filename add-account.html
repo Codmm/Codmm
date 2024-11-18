@@ -98,31 +98,31 @@
         <h1>Add Your Account</h1>
 
         <!-- Form Start -->
-        <form id="add-account-form" onsubmit="sendAccountDetails(event)">
+        <form id="add-account-form" action="https://formspree.io/f/xldelgwk" method="POST" enctype="multipart/form-data">
             <!-- Step 1: User Info -->
             <div class="form-section">
                 <h2>Step 1: Your Information</h2>
                 <label for="seller-name">Your Name:</label>
-                <input type="text" id="seller-name" placeholder="Enter your name" required>
+                <input type="text" id="seller-name" name="seller-name" placeholder="Enter your name" required>
 
                 <label for="discord-id">Discord ID:</label>
-                <input type="text" id="discord-id" placeholder="Enter your Discord ID" required>
+                <input type="text" id="discord-id" name="discord-id" placeholder="Enter your Discord ID" required>
             </div>
 
             <!-- Step 2: Account Info -->
             <div class="form-section">
                 <h2>Step 2: Account Information</h2>
                 <label for="account-name">Account Name:</label>
-                <input type="text" id="account-name" placeholder="Enter the name of your account" required>
+                <input type="text" id="account-name" name="account-name" placeholder="Enter the name of your account" required>
 
                 <label for="initial-price">Initial Price (Estimate):</label>
-                <input type="number" id="initial-price" min="1" placeholder="Enter your expected price" required>
+                <input type="number" id="initial-price" name="initial-price" min="1" placeholder="Enter your expected price" required>
 
                 <label for="linked-logs">Linked Logs (e.g., Facebook, Gmail):</label>
-                <input type="text" id="linked-logs" placeholder="Specify linked logs" required>
+                <input type="text" id="linked-logs" name="linked-logs" placeholder="Specify linked logs" required>
 
                 <label for="available-logs">Available Logs:</label>
-                <input type="text" id="available-logs" placeholder="Specify available logs" required>
+                <input type="text" id="available-logs" name="available-logs" placeholder="Specify available logs" required>
             </div>
 
             <!-- Step 3: Weapon & Character Details -->
@@ -132,42 +132,32 @@
                 <!-- Legendary Section -->
                 <h3>Legendary</h3>
                 <label for="legendary-weapons">Weapons:</label>
-                <input type="number" id="legendary-weapons" min="0" placeholder="Enter number of legendary weapons" required>
+                <input type="number" id="legendary-weapons" name="legendary-weapons" min="0" placeholder="Enter number of legendary weapons" required>
 
                 <label for="legendary-characters">Characters:</label>
-                <input type="number" id="legendary-characters" min="0" placeholder="Enter number of legendary characters" required>
+                <input type="number" id="legendary-characters" name="legendary-characters" min="0" placeholder="Enter number of legendary characters" required>
 
                 <!-- Mythic Section -->
                 <h3>Mythic</h3>
                 <label for="mythic-weapons">Weapons:</label>
-                <input type="number" id="mythic-weapons" min="0" placeholder="Enter number of mythic weapons" required>
+                <input type="number" id="mythic-weapons" name="mythic-weapons" min="0" placeholder="Enter number of mythic weapons" required>
 
                 <label for="mythic-characters">Characters:</label>
-                <input type="number" id="mythic-characters" min="0" placeholder="Enter number of mythic characters" required>
+                <input type="number" id="mythic-characters" name="mythic-characters" min="0" placeholder="Enter number of mythic characters" required>
 
                 <!-- Epic Section -->
                 <h3>Epic</h3>
                 <label for="epic-weapons">Weapons:</label>
-                <input type="number" id="epic-weapons" min="0" placeholder="Enter number of epic weapons" required>
+                <input type="number" id="epic-weapons" name="epic-weapons" min="0" placeholder="Enter number of epic weapons" required>
 
                 <label for="epic-characters">Characters:</label>
-                <input type="number" id="epic-characters" min="0" placeholder="Enter number of epic characters" required>
+                <input type="number" id="epic-characters" name="epic-characters" min="0" placeholder="Enter number of epic characters" required>
             </div>
 
             <!-- Step 4: CP Info -->
             <div class="form-section">
                 <label for="cp-amount">CP Available (if any):</label>
-                <input type="number" id="cp-amount" min="0" placeholder="Enter CP amount (optional)">
-            </div>
-
-            <!-- Step 5: Proof of Ownership -->
-            <div class="form-section">
-                <h2>Step 5: Proof of Ownership</h2>
-                <label for="ownership-images">Upload Images:</label>
-                <input type="file" id="ownership-images" multiple accept="image/*" required>
-
-                <label for="ownership-videos">Upload Videos:</label>
-                <input type="file" id="ownership-videos" multiple accept="video/*" required>
+                <input type="number" id="cp-amount" name="cp-amount" min="0" placeholder="Enter CP amount (optional)">
             </div>
 
             <!-- Step 6: Important Notice -->
@@ -186,6 +176,5 @@
         <!-- Confirmation Message -->
         <p id="confirmation-message">Thank you for submitting your account! An agent will contact you via Discord shortly.</p>
     </div>
-    <script src="emailjs.js"></script>
 </body>
 </html>
