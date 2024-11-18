@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Account | CODM Market</title>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        /* Styling remains the same */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            max-width: 120px;
+            height: auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #00ff99;
+        }
+        h2 {
+            margin-bottom: 10px;
+            font-size: 20px;
+            color: #00ff99;
+        }
+        label {
+            font-size: 14px;
+            margin-top: 10px;
+            display: block;
+        }
+        input, textarea, select, button {
+            width: 100%;
+            margin-top: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 14px;
+        }
+        input, textarea, select {
+            background-color: #2c2c2c;
+            color: #ffffff;
+        }
+        button {
+            background-color: #00ff99;
+            color: #121212;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #00cc7a;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        .important-note {
+            font-size: 14px;
+            color: #ffcc00;
+            background-color: #333333;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        #confirmation-message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #00ff99;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="logo.png" alt="CODM Market Logo">
+        </div>
+
+        <!-- Page Title -->
+        <h1>Add Your Account</h1>
+
+        <!-- Form Start -->
+        <form id="add-account-form" onsubmit="sendAccountDetails(event)">
+            <!-- Step 1: User Info -->
+            <div class="form-section">
+                <h2>Step 1: Your Information</h2>
+                <label for="seller-name">Your Name:</label>
+                <input type="text" id="seller-name" placeholder="Enter your name" required>
+
+                <label for="discord-id">Discord ID:</label>
+                <input type="text" id="discord-id" placeholder="Enter your Discord ID" required>
+            </div>
+
+            <!-- Step 2: Account Info -->
+            <div class="form-section">
+                <h2>Step 2: Account Information</h2>
+                <label for="account-name">Account Name:</label>
+                <input type="text" id="account-name" placeholder="Enter the name of your account" required>
+
+                <label for="initial-price">Initial Price (Estimate):</label>
+                <input type="number" id="initial-price" min="1" placeholder="Enter your expected price" required>
+
+                <label for="linked-logs">Linked Logs (e.g., Facebook, Gmail):</label>
+                <input type="text" id="linked-logs" placeholder="Specify linked logs" required>
+
+                <label for="available-logs">Available Logs:</label>
+                <input type="text" id="available-logs" placeholder="Specify available logs" required>
+            </div>
+
+            <!-- Step 3: Weapon & Character Details -->
+            <div class="form-section">
+                <h2>Step 3: Weapon & Character Details</h2>
+
+                <!-- Legendary Section -->
+                <h3>Legendary</h3>
+                <label for="legendary-weapons">Weapons:</label>
+                <input type="number" id="legendary-weapons" min="0" placeholder="Enter number of legendary weapons" required>
+
+                <label for="legendary-characters">Characters:</label>
+                <input type="number" id="legendary-characters" min="0" placeholder="Enter number of legendary characters" required>
+
+                <!-- Mythic Section -->
+                <h3>Mythic</h3>
+                <label for="mythic-weapons">Weapons:</label>
+                <input type="number" id="mythic-weapons" min="0" placeholder="Enter number of mythic weapons" required>
+
+                <label for="mythic-characters">Characters:</label>
+                <input type="number" id="mythic-characters" min="0" placeholder="Enter number of mythic characters" required>
+
+                <!-- Epic Section -->
+                <h3>Epic</h3>
+                <label for="epic-weapons">Weapons:</label>
+                <input type="number" id="epic-weapons" min="0" placeholder="Enter number of epic weapons" required>
+
+                <label for="epic-characters">Characters:</label>
+                <input type="number" id="epic-characters" min="0" placeholder="Enter number of epic characters" required>
+            </div>
+
+            <!-- Step 4: CP Info -->
+            <div class="form-section">
+                <label for="cp-amount">CP Available (if any):</label>
+                <input type="number" id="cp-amount" min="0" placeholder="Enter CP amount (optional)">
+            </div>
+
+            <!-- Step 5: Proof of Ownership -->
+            <div class="form-section">
+                <h2>Step 5: Proof of Ownership</h2>
+                <label for="ownership-images">Upload Images:</label>
+                <input type="file" id="ownership-images" multiple accept="image/*" required>
+
+                <label for="ownership-videos">Upload Videos:</label>
+                <input type="file" id="ownership-videos" multiple accept="video/*" required>
+            </div>
+
+            <!-- Step 6: Important Notice -->
+            <div class="form-section">
+                <h2>Important Notice</h2>
+                <div class="important-note">
+                    <p>MM fee is 10% of the account value and must be paid upfront. All access to the account must be transferred before listing. The account's value will be evaluated, and the final price may increase or decrease. If you insist on keeping the initial price, it won't affect the MM fee. Once submitted, an agent will contact you via Discord to finalize the process.</p>
+                </div>
+                <p>If you agree to these terms, please submit your application.</p>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Application</button>
+        </form>
+
+        <!-- Confirmation Message -->
+        <p id="confirmation-message">Thank you for submitting your account! An agent will contact you via Discord shortly.</p>
+    </div>
+    <script src="js/emailjs.js"></script>
+</body>
+</html>

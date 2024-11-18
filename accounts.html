@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODM Accounts</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="CODM Market Logo">
+        </div>
+        <h1>Available CODM Accounts</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="accounts.html">Accounts</a>
+            <a href="add-account.html">Upload</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section id="accounts">
+        <h2>Our Featured Accounts</h2>
+        
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search for account..." oninput="searchAccounts()">
+            <button class="but"><a href="order.html" class="buut">MAKE ORDER</a></button>
+        </div>
+
+        <div id="accountGrid" class="account-grid">
+            <div class="account">
+                <img src="account1.jpg" alt="Account 1">
+                <h3>Elite Warrior</h3>
+                <h4>Price :$250</h4>
+                <p>Mytic Guns: 7 Skins: 2</p>
+                <p>Legendary Guns: 19 Skins: 7</p>
+                <p>Epic Guns: 126 Skins: 177</p>
+                <h4>Total logs : 3</h4>
+                <h4>Active logs : 2 </h4>
+                <button onclick="location.href='order.html'">Order Now</button>
+            </div>
+            <div class="account">
+                <img src="account2.jpg" alt="Account 2">
+                <h3>Sniper Pro</h3>
+               <h4>Price :$250</h4>
+                <p>Mytic Guns: 7 Skins: 2</p>
+                <p>Legendary Guns: 19 Skins: 7</p>
+                <p>Epic Guns: 126 Skins: 177</p>
+                <h4>Total logs : 3</h4>
+                <h4>Active logs : 2 </h4>
+                <button onclick="location.href='order.html'">Order Now</button>
+            </div>
+            <div class="account">
+                <img src="account3.jpg" alt="Account 3">
+                <h3>Battle Master</h3>
+                <h4>Price :$250</h4>
+                <p>Mytic Guns: 7 Skins: 2</p>
+                <p>Legendary Guns: 19 Skins: 7</p>
+                <p>Epic Guns: 126 Skins: 177</p>
+                <h4>Total logs : 3</h4>
+                <h4>Active logs : 2 </h4>
+                <button onclick="location.href='order.html'">Order Now</button>
+            </div>
+            
+<div class="account">
+                <img src="account4.jpg" alt="Account 3">
+                <h3>Classic</h3>
+                <h4>Price :$20 (30 cp account)</h4>
+                <p>Mytic Guns: 16 Skins: 0</p>
+                <p>Legendary Guns: 15 Skins: 5</p>
+                <p>Epic Guns: 203 Skins: 47</p>
+                <h4>Total logs : 2</h4>
+                <h4>Active logs : 2 </h4>
+                <button onclick="location.href='order.html'">Order Now</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 CODM Market. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function searchAccounts() {
+            const searchBar = document.getElementById('searchBar').value.toLowerCase();
+            const accounts = document.querySelectorAll('.account');
+
+            accounts.forEach(account => {
+                const accountName = account.querySelector('h3').textContent.toLowerCase();
+                if (accountName.includes(searchBar)) {
+                    account.style.display = 'block';
+                } else {
+                    account.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

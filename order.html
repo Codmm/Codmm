@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order CODM Account</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your Public Key
+        (function() {
+            emailjs.init("dMbRI51iOIZ--BE6c");
+        })();
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="CODM Market Logo">
+        </div>
+        <h1>Place Your Order</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="accounts.html">Accounts</a>
+            <a href="add-account.html">Upload</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section id="order-form">
+        <h2>Order Details</h2>
+        <form id="orderForm" onsubmit="sendEmail(event)">
+            <div class="form-layer">
+                <h3>Step 1: Your Information</h3>
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="discord">Discord ID:</label>
+                <input type="text" id="discord" name="discord" placeholder="Enter your Discord ID" required>
+            </div>
+
+            <div class="form-layer">
+                <h3>Step 2: Account & Offer</h3>
+                <label for="account">Select Account:</label>
+                <select id="account" name="account" required>
+                    <option value="Elite Warrior">Elite Warrior</option>
+                    <option value="Sniper Pro">Sniper Pro</option>
+                    <option value="Battle Master">Battle Master</option>
+                    <option value="Custom Account">Custom Account</option>
+                    <option value="Classic">Classic</option>
+                </select>
+
+                <label for="offer">Your Offer:</label>
+                <input type="text" id="offer" name="offer" placeholder="Enter your offer (e.g., $50)" required>
+            </div>
+
+            <div class="form-layer">
+                <h3>Step 3: Choose a Middleman</h3>
+                <div class="middleman-selection">
+                    <div class="mm-option">
+                        <img src="mm1.jpg" alt="samuel">
+                        <label for="mm1">Samuel</label>
+                        <input type="radio" id="mm1" name="middleman" value="Middleman 1" required>
+                    </div>
+                    <div class="mm-option">
+                        <img src="mm2.jpg" alt="Middleman 2">
+                        <label for="mm2">Middleman 2</label>
+                        <input type="radio" id="mm2" name="middleman" value="Middleman 2" required>
+                    </div>
+                    <div class="mm-option">
+                        <img src="mm3.jpg" alt="Middleman 3">
+                        <label for="mm3">Middleman 3</label>
+                        <input type="radio" id="mm3" name="middleman" value="Middleman 3" required>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Place Order</button>
+        </form>
+
+        <div id="confirmation-message" class="confirmation-message" style="display: none;">
+            <h3>Thank you for choosing CODMM! Our agent will contact you via Discord shortly to finalize your offer.</h3>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 CODM Market. All rights reserved.</p>
+    </footer>
+    <script>
+function sendEmail(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Collect form data
+    const name = document.getElementById("name").value;
+    const discord = document.getElementById("discord").value;
+    const account = document.getElementById("account").value;
+    const offer = document.getElementById("offer").value;
+    const middleman = document.querySelector('input[name="middleman"]:checked').value;
+
+    // EmailJS parameters
+    const templateParams = {
+        name: name,
+        discord: discord,
+        account: account,
+        offer: offer,
+        middleman: middleman,
+    };
+
+    // Send email using EmailJS
+    emailjs
+        .send("Thisiscodmm", "template_lfg6crz", templateParams)
+        .then((response) => {
+            console.log("SUCCESS!", response.status, response.text);
+            document.getElementById("confirmation-message").style.display = "block"; // Show confirmation
+        })
+        .catch((error) => {
+            console.error("EmailJS Error:", error);
+            alert("Something went wrong. Please try again later.");
+        });
+}
+ </script>
+</body>
+</html>
