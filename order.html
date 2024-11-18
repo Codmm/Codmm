@@ -5,13 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order CODM Account</title>
     <link rel="stylesheet" href="index.css">
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-    <script>
-        // Initialize EmailJS with your Public Key
-        (function() {
-            emailjs.init("dMbRI51iOIZ--BE6c");
-        })();
-    </script>
 </head>
 <body>
     <header>
@@ -29,7 +22,8 @@
 
     <section id="order-form">
         <h2>Order Details</h2>
-        <form id="orderForm" onsubmit="sendEmail(event)">
+        <form id="orderForm" action="https://formspree.io/f/xldelgwk"
+  method="POST">
             <div class="form-layer">
                 <h3>Step 1: Your Information</h3>
                 <label for="name">Your Name:</label>
@@ -86,41 +80,6 @@
     <footer>
         <p>&copy; 2024 CODM Market. All rights reserved.</p>
     </footer>
-    <script>
-emailjs.init('dMbRI51iOIZ--BE6c');
-function sendEmail(event) {
-    event.preventDefault(); // Prevent form submission
-
-    // Collect form data
-    const name = document.getElementById("name").value;
-    const discord = document.getElementById("discord").value;
-    const account = document.getElementById("account").value;
-    const offer = document.getElementById("offer").value;
-    const middleman = document.querySelector('input[name="middleman"]:checked').value;
-
-    // EmailJS parameters
-    const templateParams = {
-        name: name,
-        discord: discord,
-        account: account,
-        offer: offer,
-        middleman: middleman,
-    };
-    const serviceID = 'Thisiscodmm'; // Updated Service ID
-    const templateID = 'template_lfg6crz'; // Replace with your Template ID
-
-    // Send email using EmailJS
-    emailjs
-        .send("serviceID", "templateID", templateParams)
-        .then((response) => {
-            console.log("SUCCESS!", response.status, response.text);
-            document.getElementById("confirmation-message").style.display = "block"; // Show confirmation
-        })
-        .catch((error) => {
-            console.error("EmailJS Error:", error);
-            alert("Something went wrong. Please try again later.");
-        });
-}
- </script>
+    
 </body>
 </html>
