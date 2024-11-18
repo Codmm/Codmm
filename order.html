@@ -22,8 +22,7 @@
 
     <section id="order-form">
         <h2>Order Details</h2>
-        <form id="orderForm" action="https://formspree.io/f/xldelgwk"
-  method="POST">
+        <form id="orderForm" action="https://formspree.io/f/xldelgwk" method="POST">
             <div class="form-layer">
                 <h3>Step 1: Your Information</h3>
                 <label for="name">Your Name:</label>
@@ -52,9 +51,9 @@
                 <h3>Step 3: Choose a Middleman</h3>
                 <div class="middleman-selection">
                     <div class="mm-option">
-                        <img src="mm1.jpg" alt="samuel">
+                        <img src="mm1.jpg" alt="Samuel">
                         <label for="mm1">Samuel</label>
-                        <input type="radio" id="mm1" name="middleman" value="Middleman 1" required>
+                        <input type="radio" id="mm1" name="middleman" value="Samuel" required>
                     </div>
                     <div class="mm-option">
                         <img src="mm2.jpg" alt="Middleman 2">
@@ -80,6 +79,15 @@
     <footer>
         <p>&copy; 2024 CODM Market. All rights reserved.</p>
     </footer>
-    
+    <script>
+        // Handle confirmation message display
+        const form = document.getElementById('orderForm');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent page refresh
+            const confirmationMessage = document.getElementById('confirmation-message');
+            confirmationMessage.style.display = 'block';
+            form.submit(); // Proceed with Formspree submission
+        });
+    </script>
 </body>
-</html>
+                    </html>
