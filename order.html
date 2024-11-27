@@ -22,7 +22,7 @@
 
     <section id="order-form">
         <h2>Order Details</h2>
-        <form id="orderForm" action="https://formspree.io/f/your-form-id" method="POST">
+        <form id="orderForm">
             <div class="form-layer">
                 <h3>Step 1: Your Information</h3>
                 <label for="name">Your Name:</label>
@@ -99,7 +99,7 @@
 
             // Send form data to Formspree
             try {
-                const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+                const response = await fetch("https://formspree.io/f/xldelgwk", {
                     method: "POST",
                     body: formData,
                     headers: {
